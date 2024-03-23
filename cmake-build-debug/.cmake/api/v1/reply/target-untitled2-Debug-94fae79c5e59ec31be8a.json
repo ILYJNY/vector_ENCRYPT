@@ -53,7 +53,11 @@
 			"sourceIndexes" : 
 			[
 				0,
-				1
+				1,
+				3,
+				5,
+				6,
+				7
 			]
 		}
 	],
@@ -91,14 +95,19 @@
 			"sourceIndexes" : 
 			[
 				0,
-				1
+				1,
+				3,
+				5,
+				6,
+				7
 			]
 		},
 		{
 			"name" : "Header Files",
 			"sourceIndexes" : 
 			[
-				2
+				2,
+				4
 			]
 		}
 	],
@@ -107,19 +116,48 @@
 		{
 			"backtrace" : 1,
 			"compileGroupIndex" : 0,
-			"path" : "main.cpp",
+			"path" : "main/final/main.cpp",
 			"sourceGroupIndex" : 0
 		},
 		{
 			"backtrace" : 1,
 			"compileGroupIndex" : 0,
-			"path" : "vector_struct.cpp",
+			"path" : "main/final/vector_struct.cpp",
 			"sourceGroupIndex" : 0
 		},
 		{
 			"backtrace" : 1,
-			"path" : "vector_struct.h",
+			"path" : "main/final/vector_struct.h",
 			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 1,
+			"compileGroupIndex" : 0,
+			"path" : "main/2-d/vector_calculate.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"path" : "main/2-d/vector_sources.h",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 1,
+			"compileGroupIndex" : 0,
+			"path" : "main/2-d/main.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"compileGroupIndex" : 0,
+			"path" : "main/2-d/orthogonal_to_polar.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"compileGroupIndex" : 0,
+			"path" : "main/2-d/get_public_key.cpp",
+			"sourceGroupIndex" : 0
 		}
 	],
 	"type" : "EXECUTABLE"
