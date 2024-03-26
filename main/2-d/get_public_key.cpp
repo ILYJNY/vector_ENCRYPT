@@ -7,24 +7,29 @@
 
 
 
-keys get_keys() {
-    double first_x;
-    double first_y;
-    double second_x;
-    double second_y;
+public_key get_keys() {
+    long double first_x;
+    long double first_y;
+    long double second_x;
+    long double second_y;
+    long long int times_first;
+    long long int times_second;
 
-    printf("%s", "Enter x of 1st vector: ");
-    scanf("%lf", &first_x);
-    printf("%s", "Enter y of 1st vector: ");
-    scanf("%lf", &first_y);
-    printf("%s", "Enter x of 2nd vector: ");
-    scanf("%lf", &second_x);
-    printf("%s", "Enter y of 2nd vector: ");
-    scanf("%lf", &second_y);
-
+    printf("%s\n", "Enter x of 1st vector: ");
+    scanf("%Lf", &first_x);
+    printf("%s\n", "Enter y of 1st vector: ");
+    scanf("%Lf", &first_y);
+    printf("%s\n", "Enter how many times you will do on 1nd vector : ");
+    scanf("%llu", &times_first);
+    printf("%s\n", "Enter x of 2nd vector: ");
+    scanf("%Lf", &second_x);
+    printf("%s\n", "Enter y of 2nd vector: ");
+    scanf("%Lf", &second_y);
+    printf("%s\n", "Enter how many times you will do on 2nd vector : ");
+    scanf("%llu", &times_second);
     keys return_trash = {{first_x, first_y}, {second_x, second_y}};
-
-    return return_trash;
+    public_key result = {return_trash, times_first, times_second};
+    return result;
 
 }
 

@@ -6,9 +6,9 @@
 
 
 vectors_orthogonal make_into_coord_public(vectors_orthogonal A, vectors_orthogonal B) {
-    double x_1 = A.x;
-    double x_2 = B.x;
-    double y_1 = A.y;
-    double y_2 = B.y;
+    long double x_1 = A.x;
+    long double x_2 = B.x;
+    long double y_1 = A.y;
+    long double y_2 = B.y;
 
 };
