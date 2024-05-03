@@ -72,11 +72,11 @@ key generate_private_key(vector<vector<lf>> spacebasevectors, ulld dimensions) {
 //        auto beta = random_ulld(-2, 2);
 //        vector1 = vector_scalar_times(spacebasevectors[i], alpha);
 //}
-    auto alpha = random_lld(-2, 2);
-    auto beta = random_lld(-2, 2);
+    auto alpha = random_lld(-1, 1);
+    auto beta = random_lld(-1, 1);
     vector1 = add_subtractv(vector_scalar_times(spacebasevectors[0], alpha), vector_scalar_times(spacebasevectors[1], beta), true);
-    auto alpha_ = random_lld(-2, 2);
-    auto beta_ = random_lld(-2, 2);
+    auto alpha_ = random_lld(-1, 1);
+    auto beta_ = random_lld(-1, 1);
     vector2 = add_subtractv(vector_scalar_times(spacebasevectors[0], alpha_), vector_scalar_times(spacebasevectors[1], beta_), true);
     if ((vector1[0] / vector1[1]) == (vector2[0] / vector2[1]) || (vector1[0] / vector1[0]) == (vector2[0] / vector2[1]) * (-1) || (vector1[0] / vector1[1]) * (vector2[0] / vector2[1]) == 1 || (vector1[0] / vector1[1]) * (vector2[0] / vector2[1]) == -1) {//2차원으로 해서 이렇고 다차원으로 가면 for문으로 감
         generate_private_key(spacebasevectors, dimensions);
@@ -106,7 +106,6 @@ key generate_public_key(vector<vector<lf>> spacebasevectors, ulld dimensions) {/
 
 
 int main_2_d() {
-
 
 }
 
