@@ -10,4 +10,6 @@ struct key {
     std::vector<long double> second;
 };
 
+
+
 #endif //VECCTOR_ENCRYPT_2_DMAIN_H

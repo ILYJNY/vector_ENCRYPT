@@ -4,9 +4,18 @@
 #include "2-dmain.h"
 #include "vector"
 #include "random"
+#include "cmath"
 #define lf long double
 #define ulld unsigned long long int
 #define lld long long int
+#include "../../vector_matrix_cal/vector_matrix_cals.cpp"
+#define MATRIX_LF std::vector<std::vector<long double>>
+#define VECTOR_LF std::vector<long double>
+#define MATRIX_CLF std::vector<std::vector<std::complex<long double>>>
+#define VECTOR_CLF std::vector<std::complex<long double>>
+
+
+
 
 
 
@@ -54,20 +63,45 @@ vector<vector<lf>> make_spacebase_vectors(ulld dimension) {
 }
 
 
-
-key generate_public_key(vector<vector<lf>> spacebasevectors, ulld dimensions) {
-    dimensions = 2;
-    for (ulld i=0;i<dimensions;i++) {
-
-    }
-
-}
-
 key generate_private_key(vector<vector<lf>> spacebasevectors, ulld dimensions) {
     dimensions = 2;
-    for (ulld i=0;i<dimensions;i++) {
-        random_ulld(-2, 2);
+    vector<lf> vector1;
+    vector<lf> vector2;
+//    for (ulld i=0;i<dimensions;i++) {//나중에 차원 높아지면 아래거들 감마, 델타식으로 늘려서 계산하면됨
+//        auto alpha = random_ulld(-2, 2);
+//        auto beta = random_ulld(-2, 2);
+//        vector1 = vector_scalar_times(spacebasevectors[i], alpha);
+//}
+    auto alpha = random_lld(-2, 2);
+    auto beta = random_lld(-2, 2);
+    vector1 = add_subtractv(vector_scalar_times(spacebasevectors[0], alpha), vector_scalar_times(spacebasevectors[1], beta), true);
+    auto alpha_ = random_lld(-2, 2);
+    auto beta_ = random_lld(-2, 2);
+    vector2 = add_subtractv(vector_scalar_times(spacebasevectors[0], alpha_), vector_scalar_times(spacebasevectors[1], beta_), true);
+    if ((vector1[0] / vector1[1]) == (vector2[0] / vector2[1]) || (vector1[0] / vector1[0]) == (vector2[0] / vector2[1]) * (-1) || (vector1[0] / vector1[1]) * (vector2[0] / vector2[1]) == 1 || (vector1[0] / vector1[1]) * (vector2[0] / vector2[1]) == -1) {//2차원으로 해서 이렇고 다차원으로 가면 for문으로 감
+        generate_private_key(spacebasevectors, dimensions);
     }
+    return {vector1, vector2};
+}
+
+
+key generate_public_key(vector<vector<lf>> spacebasevectors, ulld dimensions) {//일단 모든 주의사항은 개인키와 동일
+    dimensions = 2;
+//    for (ulld i=0;i<dimensions;i++) {
+//
+//    }
+    VECTOR_LF vector1;
+    VECTOR_LF vector2;
+    auto alpha = random_lld(-100000, 100000);
+    auto beta = random_lld(-100000, 100000);
+    vector1 = add_subtractv(vector_scalar_times(spacebasevectors[0], alpha), vector_scalar_times(spacebasevectors[0], beta), true);
+    auto alpha_ = random_lld(-100000, 100000);
+    auto beta_ = random_lld(-100000, 100000);
+    vector2 = add_subtractv(vector_scalar_times(spacebasevectors[0], alpha_), vector_scalar_times(spacebasevectors[0], beta_),true);
+    if ((vector1[0] / vector1[1]) == (vector2[0] / vector2[1]) || (vector1[0] / vector1[0]) == (vector2[0] / vector2[1]) * (-1) || (vector1[0] / vector1[1]) * (vector2[0] / vector2[1]) == 1 || (vector1[0] / vector1[1]) * (vector2[0] / vector2[1]) == -1) {//2차원으로 해서 이렇고 다차원으로 가면 for문으로 감
+        generate_private_key(spacebasevectors, dimensions);
+    }
+    return {vector1, vector2};
 }
 
 
