@@ -152,6 +152,54 @@ main/2-d/2-dmain.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\vector_ENCRYPT.dir\build.make CMakeFiles/vector_ENCRYPT.dir/main/2-d/2-dmain.cpp.s
 .PHONY : main/2-d/2-dmain.cpp.s
 
+print_vector_matrix/print.obj: print_vector_matrix/print.cpp.obj
+.PHONY : print_vector_matrix/print.obj
+
+# target to build an object file
+print_vector_matrix/print.cpp.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\vector_ENCRYPT.dir\build.make CMakeFiles/vector_ENCRYPT.dir/print_vector_matrix/print.cpp.obj
+.PHONY : print_vector_matrix/print.cpp.obj
+
+print_vector_matrix/print.i: print_vector_matrix/print.cpp.i
+.PHONY : print_vector_matrix/print.i
+
+# target to preprocess a source file
+print_vector_matrix/print.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\vector_ENCRYPT.dir\build.make CMakeFiles/vector_ENCRYPT.dir/print_vector_matrix/print.cpp.i
+.PHONY : print_vector_matrix/print.cpp.i
+
+print_vector_matrix/print.s: print_vector_matrix/print.cpp.s
+.PHONY : print_vector_matrix/print.s
+
+# target to generate assembly for a file
+print_vector_matrix/print.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\vector_ENCRYPT.dir\build.make CMakeFiles/vector_ENCRYPT.dir/print_vector_matrix/print.cpp.s
+.PHONY : print_vector_matrix/print.cpp.s
+
+transfer_message_to_vector/transfer.obj: transfer_message_to_vector/transfer.cpp.obj
+.PHONY : transfer_message_to_vector/transfer.obj
+
+# target to build an object file
+transfer_message_to_vector/transfer.cpp.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\vector_ENCRYPT.dir\build.make CMakeFiles/vector_ENCRYPT.dir/transfer_message_to_vector/transfer.cpp.obj
+.PHONY : transfer_message_to_vector/transfer.cpp.obj
+
+transfer_message_to_vector/transfer.i: transfer_message_to_vector/transfer.cpp.i
+.PHONY : transfer_message_to_vector/transfer.i
+
+# target to preprocess a source file
+transfer_message_to_vector/transfer.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\vector_ENCRYPT.dir\build.make CMakeFiles/vector_ENCRYPT.dir/transfer_message_to_vector/transfer.cpp.i
+.PHONY : transfer_message_to_vector/transfer.cpp.i
+
+transfer_message_to_vector/transfer.s: transfer_message_to_vector/transfer.cpp.s
+.PHONY : transfer_message_to_vector/transfer.s
+
+# target to generate assembly for a file
+transfer_message_to_vector/transfer.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\vector_ENCRYPT.dir\build.make CMakeFiles/vector_ENCRYPT.dir/transfer_message_to_vector/transfer.cpp.s
+.PHONY : transfer_message_to_vector/transfer.cpp.s
+
 # Help Target
 help:
 	@echo The following are some of the valid targets for this Makefile:
@@ -164,6 +212,12 @@ help:
 	@echo ... main/2-d/2-dmain.obj
 	@echo ... main/2-d/2-dmain.i
 	@echo ... main/2-d/2-dmain.s
+	@echo ... print_vector_matrix/print.obj
+	@echo ... print_vector_matrix/print.i
+	@echo ... print_vector_matrix/print.s
+	@echo ... transfer_message_to_vector/transfer.obj
+	@echo ... transfer_message_to_vector/transfer.i
+	@echo ... transfer_message_to_vector/transfer.s
 .PHONY : help
 
 

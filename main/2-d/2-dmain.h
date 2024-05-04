@@ -5,11 +5,15 @@
 #ifndef VECCTOR_ENCRYPT_2_DMAIN_H
 #define VECCTOR_ENCRYPT_2_DMAIN_H
 
-struct key {
+struct key : public vector {
     std::vector<long double> first;
     std::vector<long double> second;
 };
 
+struct information {
+    key public_key;
+    std::vector<long double> message_or_encryption;
+};
 
 
 #endif //VECCTOR_ENCRYPT_2_DMAIN_H
