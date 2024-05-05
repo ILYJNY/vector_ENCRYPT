@@ -9,6 +9,7 @@
 #define ulld unsigned long long int
 #define lld long long int
 #include "../../vector_matrix_cal/vector_matrix_cals.cpp"
+#include "../../transfer message to vector/transfer.cpp"
 #define MATRIX_LF std::vector<std::vector<long double>>
 #define VECTOR_LF std::vector<long double>
 #define MATRIX_CLF std::vector<std::vector<std::complex<long double>>>
@@ -117,37 +118,52 @@ key generate_public_key(vector<vector<lf>> spacebasevectors, ulld dimensions) {/
 
 
 
-VECTOR_LF decrypt(VECTOR_LF encrypted, const key& private_key) {//2차원
+vector<ulld> decrypt(MATRIX_LF encrypted, const key& private_key) {//2차원
+    MATRIX_LF for_result;
     MATRIX_LF result;
-    MATRIX_LF vector_encrypted;
     MATRIX_LF vector_privatekey;
-    vector_encrypted[0] = encrypted;
-    vector_privatekey[0] = private_key.first;
-    vector_privatekey[1] = private_key.second;
-    result = matrix_timesv(inverse_matrix(vector_privatekey),vector_encrypted);
-    return add_subtractv(vector_scalar_times(private_key.first, result[0][0]), vector_scalar_times(private_key.second,result[0][1]),
-                  true);
+    for (ulld i =0;i<encrypted.size();i++) {
+        MATRIX_LF vector_encrypted;
+        vector_encrypted[0] = encrypted[i];
+        vector_privatekey[0] = private_key.first;
+        vector_privatekey[1] = private_key.second;
+        for_result = matrix_timesv(inverse_matrix(vector_privatekey), vector_encrypted);
+        result[i] = add_subtractv(vector_scalar_times(private_key.first, for_result[0][0]), vector_scalar_times(private_key.second,for_result[0][1]),
+                      true);
+    }
+    vector<ulld> vector_to_ulld;
+    for (ulld i=0;i<result.size();i++) {
+        vector_to_ulld[i] = (ulld) (result[i][0] + result[i][1]);
+    }
+    return vector_to_ulld;
 }
 
-vector<lf> encrypt(VECTOR_LF message, const key& private_key) {//2차원
-    lf random1 = random_custom(-1/2, 1/2);
-    lf random2 = random_custom(-1/2, 1/2);
-    return add_subtractv(vector_scalar_times(private_key.first, message[0] + random1), vector_scalar_times(private_key.second, message[1] + random2),
-                         true);
+MATRIX_LF encrypt(MATRIX_LF message, const key& private_key) {//2차원
+    MATRIX_LF result;
+    for (ulld i = 0; i < message.size(); i++) {
+        lf random1 = random_custom(-1 / 2, 1 / 2);
+        lf random2 = random_custom(-1 / 2, 1 / 2);
+        result[i] = add_subtractv(vector_scalar_times(private_key.first, message[i][0] + random1),
+                                          vector_scalar_times(private_key.second, message[i][1] + random2),
+                                          true);
+
+    }
+    return result;
+
 }
 
-information sending(VECTOR_LF message, const key& private_key) {//2차원
+information sending(string message, const key& private_key) {//2차원
     MATRIX_LF trash;
     trash[0] = private_key.first;
     trash[1] = private_key.second;
-    return {generate_public_key(trash, 2), encrypt(message, private_key)};
+    return {generate_public_key(trash, 2), encrypt(s2v(message), private_key)};
 }
 
 
-VECTOR_LF getting(const information& info, const key& private_key) {
-    VECTOR_LF encrypted_message = info.message_or_encryption;
-    VECTOR_LF message = decrypt(encrypted_message, private_key);
-    return message;
+string getting(const information& info, const key& private_key) {
+    MATRIX_LF encrypted_message = info.message_or_encryption;
+    vector<ulld> message = decrypt(encrypted_message, private_key);
+    return v2s(message);
 }
 
 
@@ -156,5 +172,12 @@ int main_2_d() {
     string message;
     cout << "What is your message?" << endl;
     cin >> message;
+    key private_key;
+    MATRIX_LF saves = make_spacebase_vectors(2);
+    private_key.first = saves[0];
+    private_key.second = saves[1];
+    MATRIX_LF message_mlf = s2v(message);
+    information info = sending(message, private_key);
+    string decrypted_message = getting(info, private_key);
 }
 

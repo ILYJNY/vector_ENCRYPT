@@ -9,7 +9,7 @@ add_executable(vector_ENCRYPT# main.cpp
 #        main/final/vector_struct.h
 #        main/2-d/vector_calculate.cpp
 #        main/2-d/vector_sources.h
-#        main/2-d/2-dmain.cpp
+        main/2-d/2-dmain.cpp
 #        "transfer message to vector/transfer.cpp"
 #        print_vector_matrix/print.cpp
         #        main/2-d/decrypt.cpp

@@ -88,12 +88,6 @@
 		<Unit filename="C:/Users/jeonl/CLionProjects/vector_ENCRYPT/1/main/2-d/2-dmain.h">
 			<Option target="vector_ENCRYPT"/>
 		</Unit>
-		<Unit filename="C:/Users/jeonl/CLionProjects/vector_ENCRYPT/1/print_vector_matrix/print.cpp">
-			<Option target="vector_ENCRYPT"/>
-		</Unit>
-		<Unit filename="C:/Users/jeonl/CLionProjects/vector_ENCRYPT/1/transfer message to vector/transfer.cpp">
-			<Option target="vector_ENCRYPT"/>
-		</Unit>
 		<Unit filename="C:/Users/jeonl/CLionProjects/vector_ENCRYPT/1/CMakeLists.txt">
 			<Option virtualFolder="CMake Files\"/>
 		</Unit>
